@@ -1,0 +1,16 @@
+c1d8f553a915b38bd99823174a21cac0 *DESCRIPTION
+02d5f6151270a2018d6e768936acac5d *NAMESPACE
+03c7875e4251e5e9e9177bf3f4696a97 *NEWS.md
+e778a478ed09c0f4a6d0eb2762f19d01 *R/RcppExports.R
+776ad9686257617a7949aa4d970b7a6e *R/data.R
+8604ee7b14a5e79a74a9c32fac644438 *R/devianlm_stats.R
+c23fd585caf6410990e4e374bef1004e *data/salary.rda
+901461ff8d95edce5924313da659b597 *man/devianLM-package.Rd
+e625eef6c670473f0cae09633cda5680 *man/devianlm_stats.Rd
+57aa49cb807346221592f3940dd4db94 *man/get_devianlm_threshold.Rd
+1be441219e21780ae236af27befb3d28 *man/salary.Rd
+e62585629948e7dd143efbad43c2a6eb *src/Makevars
+e62585629948e7dd143efbad43c2a6eb *src/Makevars.win
+d6303987d3ec33d320ab5ba6a4932677 *src/RcppExports.cpp
+5f33bc996a9909bdc1a650449cb45a5b *src/devianlm_cpp.cpp
+7d16b2450b9500d998c79e7b52e7d04d *tests/testthat/test-basic.R

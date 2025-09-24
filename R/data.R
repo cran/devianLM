@@ -1,0 +1,39 @@
+#' Salary dataset
+#'
+#' @description A random sample from the 2012 Current Population Survey (CPS). It is the primary source of labor force statistics for the US population.
+#'
+#' \itemize{
+#'   \item age. age of the individual (0--85)
+#'   \item sex. sex of the individual ("F" = Female, "M" = Male)
+#'   \item region. region
+#'   ("NE" = Northeast, "W" = West, "S" = South, "NW" = Northwest)
+#'   \item marital_status. marital status of the individual
+#'   ("NM" = Never married, "M" = Married, "D" = Divorced, "S" = Separated, "W" = Widowed)
+#'   \item hourly_earnings. how much does the individual earn per hour (00--9999)
+#'   \item educational_attainment. educational attainment of the individual
+#'   (0 = Children, 31 = Less than 1st grade, 32 = 1st,2nd,3rd,or 4th grade, 33 = 5th or 6th grade, 34 = 7th and 8th grade
+#'   35 = 9th grade, 36 = 10th grade, 37 = 11th grade, 38 = 12th grade no diploma, 39 = High school graduate - high school diploma or
+#'   equivalent, 40 = Some college but no degree, 41 = Associate degree in college - occupation/vocation program, 42 = Associate degree in college - academic program
+#'   43 = Bachelor's degree (for example: BA,AB,BS), 44 = Master's degree (for example: MA,MS,MENG,MED,MSW, MBA), 45 = Professional school degree (for example:MD,DDS,DVM,LLB,JD)
+#'   46 = Doctorate degree (for example: PHD,EDD))
+#'   \item persons_number. number of persons in household (0--16)
+#'   \item children_number. number of children in household (0--9)
+#'   \item family_income. family income from basic CPS income screener question
+#'   (-1 = Not in universe, 01 = Less than $5,000, 02 = $5,000 to $7,499, 03 = $7,500 to $9,999
+#'   04 = $10,000 to $12,499, 05 = $12,500 to $14,999, 06 = $15,000 to $19,999, 07 = $20,000 to $24,999
+#'   08 = $25,000 to $29,999, 09 = $30,000 to $34,999, 10 = $35,000 to $39,999, 11 = $40,000 to $49,999
+#'   12 = $50,000 to $59,999, 13 = $60,000 to $74,999, 14 = $75,000 to $99,999, 15 = $100,000 to $149,999)
+#'   \item hourly_earnings_log. log(hourly_earnings)
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @name salary
+#' @format A data frame with 599 rows and 10 variables
+#' @seealso {
+#' Original data are available from <https://www.ilo.org/surveyLib/index.php/catalog/7379>.
+#'
+#' The data dictionary is available from <https://www2.census.gov/programs-surveys/cps/datasets/2022/march/asec2022_ddl_pub_full.pdf>.
+#' }
+#'
+"salary"
