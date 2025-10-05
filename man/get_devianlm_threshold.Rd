@@ -13,7 +13,9 @@ get_devianlm_threshold(
 }
 \arguments{
 \item{x}{either a numeric variable or several numeric variables
-(explanatory variables) concatenated in a data frame.}
+(explanatory variables) concatenated in a data frame. 
+**Note:** `devianLM` does not add an intercept automatically; 
+include a column of ones in `x` if an intercept is desired.}
 
 \item{n_sims}{optional value which is the number of simulations, is set to 50.000 by default.}
 

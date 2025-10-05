@@ -1,7 +1,9 @@
 // [[Rcpp::depends(RcppArmadillo)]]
 #include <RcppArmadillo.h>
 // [[Rcpp::plugins(openmp)]]
-#include <omp.h>
+#ifdef _OPENMP
+  #include <omp.h>
+#endif
 using namespace Rcpp;
 
 // [[Rcpp::export]]
@@ -19,7 +21,9 @@ NumericVector devianlm_cpp(const arma::mat & X, const arma::uword n_sims, const 
       Rcpp::Rcout << "The OpenMP library is not available on this machine: running in single-threaded mode.\n";
   #endif
 
+#ifdef _OPENMP
 #pragma omp parallel for if(nthreads > 1)
+#endif
   for( arma::uword sim_i = 0; sim_i < n_sims; sim_i++ ) {
     
     //generates a vector 'y' of 'n' normal values:

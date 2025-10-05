@@ -4,7 +4,9 @@
 #' The distribution of the maximum of the absolute of the studentized residuals
 #' (depending on the design matrix) is computed via Monte-Carlo simulations (with n_sims simulations).
 #' @param x either a numeric variable or several numeric variables
-#' (explanatory variables) concatenated in a data frame.
+#'   (explanatory variables) concatenated in a data frame. 
+#'   **Note:** `devianLM` does not add an intercept automatically; 
+#'   include a column of ones in `x` if an intercept is desired.
 #' @param n_sims optional value which is the number of simulations, is set to 50.000 by default.
 #' @param alpha quantile of interest, is set to 0.95 by default.
 #' @param nthreads optional value which is the number of CPU cores to use, is set to "number of CPU cores - 1"
@@ -26,7 +28,9 @@ get_devianlm_threshold <- function(x, n_sims = 50000, nthreads = detectCores() -
 #'
 #' @param y a numeric variable
 #' @param x either a numeric variable or several numeric variables
-#' (explanatory variables) concatenated in a data frame.
+#'   (explanatory variables) concatenated in a data frame. 
+#'   **Note:** `devianLM` does not add an intercept automatically; 
+#'   include a column of ones in `x` if an intercept is desired.
 #' @param threshold numeric or NULL; if NULL, computed using devianlm_cpp()
 #' @param n_sims optional value which is the number of simulations, is set to 50.000 by default.
 #' @param alpha quantile of interest, is set to 0.95 by default.

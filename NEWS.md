@@ -1,3 +1,11 @@
+# devianLM 1.0.4
+
+## Fixes
+- Fixed open-mp library specific check ERRORs on r-release-macos-x86_64 and r-oldrel-macos-x86_64.
+- The documentation now states that the intercept must be explicitly added to the model design, if necessary.
+
+---
+
 # devianLM 1.0.3
 
 ## Fixes
@@ -9,4 +17,4 @@
 - Updated examples in documentation to reduce runtime on CRAN checks.
 
 ## Documentation
-- Added bibliographic reference to the methodology in `DESCRIPTION`
+- Added bibliographic reference to the methodology in `DESCRIPTION`.
