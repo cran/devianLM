@@ -47,7 +47,7 @@ Identify outliers using devianLM method
 \examples{
 set.seed(123)
 y <- salary$hourly_earnings_log
-x <- cbind(salary$age, salary$educational_attainment, salary$children_number)
+x <- cbind(1, salary$age, salary$educational_attainment, salary$children_number)
 
 test_salary <- devianlm_stats(y, x, n_sims = 100, alpha = 0.95)
 
@@ -57,7 +57,7 @@ plot(test_salary$reg_residuals,
   xlab = "", ylab = "Studentized residuals",
   col = ifelse(test_salary$is_outliers, "red", "black"))
 
-# Ajouter les lignes de seuil
+# Add the thresholds lines:
 abline(h = c(-test_salary$threshold, test_salary$threshold), col = "chartreuse2", lwd = 2)
  
 }

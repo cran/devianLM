@@ -1,3 +1,11 @@
+# devianLM 1.0.5
+
+## Fixes
+- Fixed a bug that prevented the propagation of 'alpha', 'n_sims', and 'n_threads' parameters when using the devianlm_stats() function
+- Fixed a bug related to the threshold: the user's design matrix is used for the threshold estimation, while a different design matrix is used for the estimation of the studentized residuals (with an Added column of '1'). This is corrected according to the package's documentation: the user has to specify the complete design matrix.
+
+---
+
 # devianLM 1.0.4
 
 ## Fixes

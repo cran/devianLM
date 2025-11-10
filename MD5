@@ -1,12 +1,12 @@
-5124aa6151342296e7a1c28b3f7eb6f3 *DESCRIPTION
+5488004b7d08a4dcbbfe2d590b919bd8 *DESCRIPTION
 02d5f6151270a2018d6e768936acac5d *NAMESPACE
-d5ba916433351556fbaa5ef6faba9c82 *NEWS.md
+a363afde220e2d772fc02325d7b6d0d3 *NEWS.md
 aae4d67989940bed65ba3721c9d8ed59 *R/RcppExports.R
 776ad9686257617a7949aa4d970b7a6e *R/data.R
-e97d6c36f38945cd3f1a7d7de9720962 *R/devianlm_stats.R
+613704784fbae75873f57637fa2b74f0 *R/devianlm_stats.R
 c23fd585caf6410990e4e374bef1004e *data/salary.rda
 901461ff8d95edce5924313da659b597 *man/devianLM-package.Rd
-b21eacdb108f904f0d7301eee747cfed *man/devianlm_stats.Rd
+b3afb3d0dfe53d948f89a963eb74cc7f *man/devianlm_stats.Rd
 321b8419272ab3e799dea2c28754de72 *man/get_devianlm_threshold.Rd
 1be441219e21780ae236af27befb3d28 *man/salary.Rd
 e62585629948e7dd143efbad43c2a6eb *src/Makevars

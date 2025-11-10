@@ -67,7 +67,7 @@ devianlm_stats <- function(y, x, threshold = NULL, n_sims = 50000, nthreads = de
   if (length(y) != NROW(x)) stop("y and x must have compatible lengths")
   
   if (is.null(threshold)) {
-    threshold <- get_devianlm_threshold(x, ...)
+    threshold <- get_devianlm_threshold( x = x, n_sims = n_sims, nthreads = nthreads, alpha = alpha )
   }
   
   # dealing with NA
@@ -84,7 +84,7 @@ devianlm_stats <- function(y, x, threshold = NULL, n_sims = 50000, nthreads = de
     message("Ties were detected in the data, they have been randomly broken")
   }
   
-  reg <- .lm.fit(cbind(1, x_clean), y_mod)
+  reg <- .lm.fit(x_clean, y_mod)
   reg$qr <- reg
   inf <- lm.influence(reg, do.coef = FALSE)
   reg_residuals <- inf$wt.res / (inf$sigma * sqrt(1 - cbind(inf$hat)))
