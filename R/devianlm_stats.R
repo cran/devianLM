@@ -16,9 +16,7 @@
 #' @useDynLib devianLM, .registration = TRUE
 #' @importFrom Rcpp sourceCpp
 #' @import parallel
-
-
-get_devianlm_threshold <- function(x, n_sims = 50000, nthreads = detectCores() - 1, alpha = 0.95) {
+get_devianlm_threshold <- function( x, n_sims = 50000, nthreads = detectCores() - 1, alpha = 0.95 ) {
   sims <- devianlm_cpp(x, n_sims, nthreads)
   quantile(sims, probs = alpha)
 }
@@ -48,7 +46,7 @@ get_devianlm_threshold <- function(x, n_sims = 50000, nthreads = detectCores() -
 #' @examples
 #' set.seed(123)
 #' y <- salary$hourly_earnings_log
-#' x <- cbind(salary$age, salary$educational_attainment, salary$children_number)
+#' x <- cbind(1, salary$age, salary$educational_attainment, salary$children_number)
 #' 
 #' test_salary <- devianlm_stats(y, x, n_sims = 100, alpha = 0.95)
 #' 
@@ -62,18 +60,18 @@ get_devianlm_threshold <- function(x, n_sims = 50000, nthreads = detectCores() -
 #' abline(h = c(-test_salary$threshold, test_salary$threshold), col = "chartreuse2", lwd = 2)
 #'  
 #' @export
-devianlm_stats <- function(y, x, threshold = NULL, n_sims = 50000, nthreads = detectCores() - 1, alpha = 0.95, ...) {
+devianlm_stats <- function( y, x, threshold = NULL, n_sims = 50000, nthreads = detectCores() - 1, alpha = 0.95, ... ) {
   
   if (length(y) != NROW(x)) stop("y and x must have compatible lengths")
-  
-  if (is.null(threshold)) {
-    threshold <- get_devianlm_threshold( x = x, n_sims = n_sims, nthreads = nthreads, alpha = alpha )
-  }
-  
+
   # dealing with NA
   complete_cases <- complete.cases(y, x)
   y_clean <- y[complete_cases]
   x_clean <- x[complete_cases, , drop = FALSE]
+
+  if (is.null(threshold)) {
+    threshold <- get_devianlm_threshold( x = x_clean, n_sims = n_sims, nthreads = nthreads, alpha = alpha )
+  }
   
   # add noise if ties are detected
   y_mod <- y_clean

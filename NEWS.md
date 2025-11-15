@@ -1,3 +1,12 @@
+# devianLM 1.0.6
+
+## Fixes
+- Fixed a bug that used the 'full' (i.e. with 'NA' values) design matrix instead of the 'cleaned' version (i.e. without 'NA' values) for the threshold estimation
+- Changed the maintainer from Guillaume Saulière to Geoffroy Berthelot and updated ORCID info.
+- Corrected the description (help) of the devianlm_stats() function.
+
+---
+
 # devianLM 1.0.5
 
 ## Fixes

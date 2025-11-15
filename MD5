@@ -1,9 +1,9 @@
-5488004b7d08a4dcbbfe2d590b919bd8 *DESCRIPTION
+efd8f2e66b1bf3ecde7414305178307a *DESCRIPTION
 02d5f6151270a2018d6e768936acac5d *NAMESPACE
-a363afde220e2d772fc02325d7b6d0d3 *NEWS.md
+5368bda45ef64846f725cfdef558a86b *NEWS.md
 aae4d67989940bed65ba3721c9d8ed59 *R/RcppExports.R
 776ad9686257617a7949aa4d970b7a6e *R/data.R
-613704784fbae75873f57637fa2b74f0 *R/devianlm_stats.R
+7d3c43853c7079a7a333ed9e5f6d6068 *R/devianlm_stats.R
 c23fd585caf6410990e4e374bef1004e *data/salary.rda
 901461ff8d95edce5924313da659b597 *man/devianLM-package.Rd
 b3afb3d0dfe53d948f89a963eb74cc7f *man/devianlm_stats.Rd
