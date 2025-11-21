@@ -1,8 +1,8 @@
 Package: devianLM
 Type: Package
 Title: Detecting Extremal Values in a Normal Linear Model
-Version: 1.0.6
-Date: 2025-11-14
+Version: 1.0.7
+Date: 2025-11-17
 Authors@R: c(
     person("Guillaume", "Sauliere", 
            role = "aut", 
@@ -28,9 +28,9 @@ Depends: R (>= 2.10)
 LazyData: true
 SystemRequirements: OpenMP (optional, for parallel execution)
 NeedsCompilation: yes
-Packaged: 2025-11-14 09:08:52 UTC; gberthelot
+Packaged: 2025-11-17 09:42:05 UTC; gberthelot
 Repository: CRAN
-Date/Publication: 2025-11-15 12:10:21 UTC
+Date/Publication: 2025-11-21 23:00:02 UTC
 Author: Guillaume Sauliere [aut] (ORCID:
     <https://orcid.org/0000-0001-8263-6456>),
   Geoffroy Berthelot [aut, cre] (ORCID:

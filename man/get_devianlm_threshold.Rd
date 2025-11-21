@@ -8,7 +8,7 @@ get_devianlm_threshold(
   x,
   n_sims = 50000,
   nthreads = detectCores() - 1,
-  alpha = 0.95
+  quant = 0.95
 )
 }
 \arguments{
@@ -22,7 +22,7 @@ include a column of ones in `x` if an intercept is desired.}
 \item{nthreads}{optional value which is the number of CPU cores to use, is set to "number of CPU cores - 1"
 by default.}
 
-\item{alpha}{quantile of interest, is set to 0.95 by default.}
+\item{quant}{quantile of interest, is set to 0.95 by default (this corresponds to a  risk level of 0.05).}
 }
 \value{
 Numeric value. \item{threshold}{The quantile of order 1-alpha of the distribution of the maximum of the absolute of the studentized residuals (depending on the design matrix) is computed via Monte-Carlo simulations (with n_sims simulations).}

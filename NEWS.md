@@ -1,3 +1,10 @@
+# devianLM 1.0.7
+
+## Fixes
+- Changed "alpha" to "quant", which is more appropriate as we compute the studentized residuals for the (requested) quantile 'quant' at level $\alpha$
+
+---
+
 # devianLM 1.0.6
 
 ## Fixes

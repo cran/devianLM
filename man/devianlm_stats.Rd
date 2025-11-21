@@ -10,7 +10,7 @@ devianlm_stats(
   threshold = NULL,
   n_sims = 50000,
   nthreads = detectCores() - 1,
-  alpha = 0.95,
+  quant = 0.95,
   ...
 )
 }
@@ -28,7 +28,7 @@ include a column of ones in `x` if an intercept is desired.}
 
 \item{nthreads}{optional value which is the number of CPU cores to use, is set to "number of CPU cores - 1" by default.}
 
-\item{alpha}{quantile of interest, is set to 0.95 by default.}
+\item{quant}{quantile of interest, is set to 0.95 by default (this corresponds to a  risk level of 0.05).}
 
 \item{...}{additional arguments for get_devianlm_threshold()}
 }
@@ -49,7 +49,7 @@ set.seed(123)
 y <- salary$hourly_earnings_log
 x <- cbind(1, salary$age, salary$educational_attainment, salary$children_number)
 
-test_salary <- devianlm_stats(y, x, n_sims = 100, alpha = 0.95)
+test_salary <- devianlm_stats(y, x, n_sims = 100, quant = 0.95)
 
 plot(test_salary$reg_residuals,
   pch = 16, cex = .8,

@@ -8,7 +8,7 @@
 #'   **Note:** `devianLM` does not add an intercept automatically; 
 #'   include a column of ones in `x` if an intercept is desired.
 #' @param n_sims optional value which is the number of simulations, is set to 50.000 by default.
-#' @param alpha quantile of interest, is set to 0.95 by default.
+#' @param quant quantile of interest, is set to 0.95 by default (this corresponds to a  risk level of 0.05)
 #' @param nthreads optional value which is the number of CPU cores to use, is set to "number of CPU cores - 1"
 #' by default.
 #' @return Numeric value. \item{threshold}{The quantile of order 1-alpha of the distribution of the maximum of the absolute of the studentized residuals (depending on the design matrix) is computed via Monte-Carlo simulations (with n_sims simulations).}
@@ -16,11 +16,10 @@
 #' @useDynLib devianLM, .registration = TRUE
 #' @importFrom Rcpp sourceCpp
 #' @import parallel
-get_devianlm_threshold <- function( x, n_sims = 50000, nthreads = detectCores() - 1, alpha = 0.95 ) {
+get_devianlm_threshold <- function( x, n_sims = 50000, nthreads = detectCores() - 1, quant = 0.95 ) {
   sims <- devianlm_cpp(x, n_sims, nthreads)
-  quantile(sims, probs = alpha)
+  quantile(sims, probs = quant)
 }
-
 
 #' Identify outliers using devianLM method
 #'
@@ -31,7 +30,7 @@ get_devianlm_threshold <- function( x, n_sims = 50000, nthreads = detectCores() 
 #'   include a column of ones in `x` if an intercept is desired.
 #' @param threshold numeric or NULL; if NULL, computed using devianlm_cpp()
 #' @param n_sims optional value which is the number of simulations, is set to 50.000 by default.
-#' @param alpha quantile of interest, is set to 0.95 by default.
+#' @param quant quantile of interest, is set to 0.95 by default (this corresponds to a  risk level of 0.05)
 #' @param nthreads optional value which is the number of CPU cores to use, is set to "number of CPU cores - 1" by default.
 #' @param ... additional arguments for get_devianlm_threshold()
 #' @return devianlm returns an object of class \emph{list} with the following components:
@@ -48,7 +47,7 @@ get_devianlm_threshold <- function( x, n_sims = 50000, nthreads = detectCores() 
 #' y <- salary$hourly_earnings_log
 #' x <- cbind(1, salary$age, salary$educational_attainment, salary$children_number)
 #' 
-#' test_salary <- devianlm_stats(y, x, n_sims = 100, alpha = 0.95)
+#' test_salary <- devianlm_stats(y, x, n_sims = 100, quant = 0.95)
 #' 
 #' plot(test_salary$reg_residuals,
 #'   pch = 16, cex = .8,
@@ -60,7 +59,7 @@ get_devianlm_threshold <- function( x, n_sims = 50000, nthreads = detectCores() 
 #' abline(h = c(-test_salary$threshold, test_salary$threshold), col = "chartreuse2", lwd = 2)
 #'  
 #' @export
-devianlm_stats <- function( y, x, threshold = NULL, n_sims = 50000, nthreads = detectCores() - 1, alpha = 0.95, ... ) {
+devianlm_stats <- function( y, x, threshold = NULL, n_sims = 50000, nthreads = detectCores() - 1, quant = 0.95, ... ) {
   
   if (length(y) != NROW(x)) stop("y and x must have compatible lengths")
 
@@ -70,7 +69,7 @@ devianlm_stats <- function( y, x, threshold = NULL, n_sims = 50000, nthreads = d
   x_clean <- x[complete_cases, , drop = FALSE]
 
   if (is.null(threshold)) {
-    threshold <- get_devianlm_threshold( x = x_clean, n_sims = n_sims, nthreads = nthreads, alpha = alpha )
+    threshold <- get_devianlm_threshold( x = x_clean, n_sims = n_sims, nthreads = nthreads, quant = quant )
   }
   
   # add noise if ties are detected
